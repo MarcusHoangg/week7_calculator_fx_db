@@ -14,7 +14,7 @@ services:
       - db_data:/var/lib/mysql
 
   app:
-    image: thanh0201/sum-product_fx:latest
+    image: amirdirin/sum-product_fx:latest
     container_name: calculator-app
     depends_on:
       - db
