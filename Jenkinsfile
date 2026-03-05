@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout SCM') {
-            steps {
-                git 'https://github.com/MarcusHoangg/week7_calculator_fx_db.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 bat 'mvn clean package'
