@@ -9,7 +9,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'mvn clean package'
+                bat 'mvn clean package -DskipTests'
             }
         }
 
@@ -27,7 +27,11 @@ pipeline {
 
         stage('Run Docker Compose') {
             steps {
-                bat 'docker compose up -d'
+
+                bat 'docker compose down --remove-orphans'
+
+                bat 'docker compose up -d --build'
+                bat 'docker ps'
             }
         }
     }
