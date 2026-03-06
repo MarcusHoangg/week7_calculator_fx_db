@@ -27,10 +27,10 @@ pipeline {
 
         stage('Run Docker Compose') {
             steps {
-                bat 'docker compose down'
+                bat 'docker compose down --remove-orphans'
                 bat 'docker compose up -d --build'
+                bat 'docker ps'
             }
-
         }
     }
 }
