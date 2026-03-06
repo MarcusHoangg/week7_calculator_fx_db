@@ -26,7 +26,8 @@ pipeline {
 
         stage('Run Docker Compose') {
             steps {
-                bat 'docker compose down --remove-orphans'
+                bat 'docker rm -f calculator-db calculator-app || exit /b 0'
+                bat 'docker compose down --remove-orphans || exit /b 0'
                 bat 'docker compose up -d --build'
                 bat 'docker ps -a'
             }
