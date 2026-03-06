@@ -6,7 +6,6 @@ pipeline {
     }
 
     stages {
-
         stage('Build') {
             steps {
                 bat 'mvn clean package'
@@ -31,6 +30,12 @@ pipeline {
                 bat 'docker compose up -d --build'
                 bat 'docker ps -a'
             }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline finished.'
         }
     }
 }
