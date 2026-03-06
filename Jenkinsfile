@@ -29,8 +29,8 @@ pipeline {
             steps {
                 bat 'docker compose down --remove-orphans'
                 bat 'docker compose up -d --build'
-                bat 'docker ps'
+                bat 'docker ps -a'
             }
         }
     }
-}
+}s
